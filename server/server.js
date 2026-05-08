@@ -1,0 +1,19 @@
+require('dotenv').config(); // ← MUST be line 1, before anything else
+
+const express = require('express');
+const cors = require('cors');
+const connectDB = require('./config/db');
+
+connectDB(); // ← now MONGO_URI is already loaded
+
+const app = express();
+app.use(cors({ origin: '*' }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api/auth', require('./routes/authRoutes'));
+
+app.get('/', (req, res) => res.send('Basobas API running'));
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
