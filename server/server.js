@@ -1,10 +1,10 @@
-require('dotenv').config(); // ← MUST be line 1, before anything else
+require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 
-connectDB(); // ← now MONGO_URI is already loaded
+connectDB(); 
 
 const app = express();
 app.use(cors({ origin: '*' }));

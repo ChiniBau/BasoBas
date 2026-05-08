@@ -11,4 +11,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports = connectDB; // ← must be exactly this, not module.exports = { connectDB }
+module.exports = connectDB;
